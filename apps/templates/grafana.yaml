@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: prometheus
+  name: grafana
   namespace: monitoring
   finalizers:
   - resources-finalizer.argocd.argoproj.io
@@ -11,13 +11,9 @@ spec:
     namespace: monitoring
   project: default
   source:
-    chart: prometheus
-    helm:
-      values: |
-        pushgateway:
-          enabled: false
-    repoURL: https://prometheus-community.github.io/helm-charts
-    targetRevision: 15.6.0
+    repoURL: https://github.com/Gurjit86/argo-cd-example.git
+    path: grafana
+    targetRevision: HEAD
   syncPolicy:
     automated:
       prune: true
