@@ -10,4 +10,4 @@ argo-cd:
           name: argo-cd
           url: https://argoproj.github.io/argo-helm
 metadata:
-  namespace: argo
+  namespace: argocd
