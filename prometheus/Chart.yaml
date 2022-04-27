@@ -1,24 +1,16 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: prometheus
-  namespace: default
-  finalizers:
-  - resources-finalizer.argocd.argoproj.io
-spec:
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: default
-  project: default
-  source:
-    chart: prometheus
-    helm:
-      values: |
-        pushgateway:
-          enabled: false
-    repoURL: https://prometheus-community.github.io/helm-charts
-    targetRevision: 15.6.0
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
+apiVersion: v2
+name: prometheus
+description: prometheus
+
+# Application charts are a collection of templates that can be packaged into versioned archives
+# to be deployed.
+type: application
+
+# This version number should be incremented each time you make changes
+# to the chart and its templates, including the app version.
+version: 1.0.0
+
+# This is the version number of the application being deployed. This version number should be
+# incremented each time you make changes to the application. Versions are not expected to
+# follow Semantic Versioning.
+appVersion: "v0.3.11"
